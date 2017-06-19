@@ -1,5 +1,5 @@
-; OM File Header - Saved 2017/04/27 15:01:26
-; (6.120003 :patc (om-make-point 10 10) (om-make-point 0 0) (om-make-point 1356 670) "" 183 0 nil "2017/04/27 15:00:17")
+; OM File Header - Saved 2017/06/08 17:49:50
+; (6.120003 :patc (om-make-point 10 10) (om-make-point 0 0) (om-make-point 1356 670) "" 183 0 nil nil)
 ; End File Header
 ; External resources 
 ; (list (list (quote :midi) "#P\"../../../../../../../Musikk/MIDIFILER/BACH/bach/invent/invent6.mid\"" "#P\"../../../../../../../Musikk/MIDIFILER/BACH/bach/invent/invent4.mid\""))
