@@ -1,7 +1,7 @@
 (in-package :om)
 
 ;;;
-;;; Time-stamp: <2017-04-27 14:42:05 andersvi>
+;;; Time-stamp: <2017-12-20 15:45:22 andersvi>
 ;;;
 ;;; Stream separation library for OM, Anders Vinjar
 ;;;
@@ -15,7 +15,7 @@
        (stream-sep-files '("stream-seg-lib" "stream-segregation.inside" "stream-seg")))
   (mapc #'(lambda (f)
 	    (print f)
-	    (compile&load (make-pathname :directory srcdir :name f :type "lisp")))
+	    (compile&load (make-pathname :directory srcdir :name f)))
 	stream-sep-files))
 
 (set-lib-release *streamsep-version*)
