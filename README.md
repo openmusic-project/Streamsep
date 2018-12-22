@@ -1,4 +1,16 @@
-Streamsep, a library for polyphonic stream segregation for OpenMusic
+# Streamsep
+
+Library for polyphonic stream segregation in OpenMusic.
+
+Includes a subclass of 'analysis' to work interactively with stream separation within segments.
+
+Check the tutorial files for examples of usage.
+
+Install in the usual ways for OM libraries.
+
+Anders Vinjar, 2017
+
+---------
 
 The terms 'Stream separation' or 'Stream segregation" are used here,
 meaning more or less the same as polyphonic voice separation or voice
