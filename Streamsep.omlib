@@ -1,0 +1,48 @@
+;;; Time-stamp: <2017-12-20 15:46:16 andersvi>
+;;;
+;;; Patterns library for OM, Anders Vinjar
+;;;
+;;; This library is an adaption of Rick Taube's "Item Streams" (or "Patterns
+;;; Streams") as found in Common Music.  Variations of Rick's original "Item
+;;; Streams" can be found in other composition environments, notably
+;;; SuperColliders "Pattern" classes.
+;;;
+;;; A good general intro to Item Streams is found in chapter 20 of Rick Taube's
+;;; book "Notes from the Metalevel":
+;;; 
+;;;	http://www.moz.ac.at/sem/lehre/lib/cm/Notes%20from%20the%20Metalevel/index.html
+;;;
+;;; Copyright (C) 2017 Anders Vinjar, <anders (dot) vinjar (at) bek (dot) no>
+;;;
+;;; This program is free software; you can redistribute it and/or modify
+;;; it under the terms of the Lisp Lesser Gnu Public License.  See
+;;; http://www.cliki.net/LLGPL for the text of this agreement.
+
+
+(:om-lib 
+ (:version 0.2)
+ (:doc "Stream-Seg - Stream separation Library for OM")
+ (:author "Anders Vinjar")
+ (:source-files 
+ 	(:pathname (:directory (:relative "sources")) (:name "stream-segregation.inside"))
+	;(:pathname (:directory (:relative "sources")) (:name "stream-seg"))
+        )
+ (:symbols
+ 	(:packages 
+ 		(:package 
+ 			(:name "Stream-seg analysis class")
+ 			(:functions 
+ 				stream-seg-segments
+				stream-seg-to-multi-seq
+	   			stream-seg-to-maquette
+	   			stream-seg-markers))
+ 		(:package 
+ 			(:name "Main interface")
+ 			(:functions cs-segregate-streams))
+ 		(:package 
+ 			(:name "Utils")
+ 			(:functions f->mel mc->mel))
+ 		))
+)
+
+

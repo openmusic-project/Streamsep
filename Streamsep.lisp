@@ -11,8 +11,12 @@
 ;;; it under the terms of the Lisp Lesser Gnu Public License.  See
 ;;; http://www.cliki.net/LLGPL for the text of this agreement.
 
+(defconstant *streamsep-version* 0.2)
+(defparameter *streamsep-date* '2017-06-01)
+
+
 (let* ((srcdir (append (pathname-directory *load-pathname*) '("sources")))
-       (stream-sep-files '("stream-seg-lib" "stream-segregation.inside" "stream-seg")))
+       (stream-sep-files '("stream-segregation.inside" "stream-seg")))
   (mapc #'(lambda (f)
 	    (compile&load (make-pathname :directory srcdir :name f)))
 	stream-sep-files))
