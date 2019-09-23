@@ -16,7 +16,7 @@
 
 
 (let* ((srcdir (append (pathname-directory *load-pathname*) '("sources")))
-       (stream-sep-files '("stream-segregation.inside" "stream-seg")))
+       (stream-sep-files '("stream-segregation-inside" "stream-seg")))
   (mapc #'(lambda (f)
 	    (compile&load (make-pathname :directory srcdir :name f)))
 	stream-sep-files))

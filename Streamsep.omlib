@@ -24,7 +24,7 @@
  (:doc "Stream-Seg - Stream separation Library for OM")
  (:author "Anders Vinjar")
  (:source-files 
- 	(:pathname (:directory (:relative "sources")) (:name "stream-segregation.inside"))
+ 	(:pathname (:directory (:relative "sources")) (:name "stream-segregation-inside"))
 	;(:pathname (:directory (:relative "sources")) (:name "stream-seg"))
         )
  (:symbols
