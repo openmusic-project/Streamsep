@@ -1,4 +1,5 @@
-# Streamsep
+# Streamsep <img src="./docs/images/700.png"  width="3%">
+
 
 Library for polyphonic stream segregation in OpenMusic.
 
@@ -8,17 +9,23 @@ Check the tutorial files for examples of usage.
 
 Install in the usual ways for OM libraries.
 
-Anders Vinjar, 2017
+Anders Vinjar
 
----------
+***************
+
+
+<img src="./docs/images/Streamsep.png">
+
+***************
+
 
 The terms 'Stream separation' or 'Stream segregation" are used here,
 meaning more or less the same as polyphonic voice separation or voice
 following.
 
 The core algorithm is based on Machine Learning clustering techniques,
-using 'Single Link Agglomerative Clustering' grouping individual notes
-into streams of voices.  This approach is well adapted to follow
+using 'Single Link Agglomerative Clustering', grouping individual
+notes into streams of voices.  This approach is well adapted to follow
 arbitrary musical voices, which may wander across registers and also
 cross each other.
 
@@ -45,6 +52,7 @@ slow select subsets of data to work on, or preferably use the provided
 analysis-class: 'stream-seg' to interactively segment data before
 applying the stream-separation analysis per segment.
 
+***************
 'stream-seg' - a sub-class of OMs 'analysis' class - is provided to
 work interactively with stream-segregation within segmentation bounds
 of segmented data.  Functions are provided to return the output from
@@ -53,6 +61,8 @@ analysed segments concatenated into one multi-seq, or data to feed a
 Maquette.
 
 Help is available directly from the graphical boxes (hit 'd'), or
-through the provided tutorials.
+through the provided tutorials:
+
+	"Help -> Import Tutorials Patches -> Libraries -> Streamsep"
 
 Anders Vinjar - April 2017
