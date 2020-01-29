@@ -111,7 +111,8 @@
 				      (format nil "streams:~{ ~A~}" (arithm-ser 1 (length (streams (segment-data segment))) 1))))))))
 
 (defmethod stream-seg-data-window ((data stream-seg-data))
-  (let ((win (om-make-window 'om-dialog :position :centered 
+  (let ((win (om-make-window 'om-dialog :position :centered
+			     :window-title "Streamsep: parameters for segment:"
                              :size (om-make-point 430 200)))
         (pane (om-make-view 'om-view
                             :size (om-make-point 400 180)
