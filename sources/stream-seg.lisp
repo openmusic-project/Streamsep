@@ -66,7 +66,7 @@
   (call-next-method))
 
 
-(defmethod analyse-one-segment ((self stream-seg) (seg segment) (object t))
+(defmethod analyse-one-segment ((self stream-seg) seg (object t))
   (let* ((begin (segment-begin seg))
 	 (end (min (segment-end seg) (get-obj-dur object)))
 	 (tmpcseq (select object begin end))
