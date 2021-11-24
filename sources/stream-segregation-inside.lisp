@@ -53,7 +53,7 @@
 		 collect (make-evt :onset onset :end (+ onset subdur)
 				   :dur subdur
 				   :data (make-instance 'chord
-							:inside (list (copy-container sub))
+							:inside (list (clone sub))
 							:offset (offset->ms evt)
 							;; :qvalue (qvalue evt)
 							)))
@@ -61,7 +61,7 @@
        collect (make-evt :onset onset
 			 :dur (car dur)
 			 :end (+ onset (car dur))
-			 :data (copy-container evt)))))
+			 :data (clone evt)))))
 
 
 
