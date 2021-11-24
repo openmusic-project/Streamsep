@@ -1,0 +1,714 @@
+
+(:patch
+ (:name "stream-seg - analysis class for stream segregation")
+ (:doc "")
+ (:info
+  (:created "2021/11/24 19:41:42")
+  (:modified "2021/11/24 19:43:04")
+  (:by "om-sharp")
+  (:version 1.05))
+ (:window (:size (1466 883)) (:position (0 0)))
+ (:grid nil)
+ (:lock nil)
+ (:boxes
+  (:comment
+   (:x 332)
+   (:y 20)
+   (:w 461)
+   (:h 42)
+   (:fgcolor (:color 0 0 0 1.0))
+   (:bgcolor nil)
+   (:border 0)
+   (:roundness nil)
+   (:text-font
+    (:font (:face "Liberation Sans") (:size 16) (:style :bold)))
+   (:align nil)
+   (:text
+    "\"stream-seg\" - analysis class to separate streams/voices
+within segments")
+   (:id 0))
+  (:comment
+   (:x 578)
+   (:y 372)
+   (:w 259)
+   (:h 36)
+   (:fgcolor (:color 0 0 0 1.0))
+   (:bgcolor nil)
+   (:border 0)
+   (:roundness nil)
+   (:text-font
+    (:font (:face "Liberation Sans") (:size 12) (:style :plain)))
+   (:align nil)
+   (:text
+    "convenience method to return a multi-seq
+from the voices in each analysed segment")
+   (:id 1))
+  (:comment
+   (:x 57)
+   (:y 293)
+   (:w 225)
+   (:h 64)
+   (:fgcolor (:color 0 0 0 1.0))
+   (:bgcolor nil)
+   (:border 0)
+   (:roundness nil)
+   (:text-font
+    (:font (:face "Liberation Sans") (:size 12) (:style :plain)))
+   (:align nil)
+   (:text
+    "stream-seg-segments returns the
+analysed segments as a list of lists 
+of chord-seqs.
+")
+   (:id 2))
+  (:comment
+   (:x 825)
+   (:y 20)
+   (:w 381)
+   (:h 316)
+   (:fgcolor (:color 0 0 0 1.0))
+   (:bgcolor nil)
+   (:border 0)
+   (:roundness nil)
+   (:text-font
+    (:font (:face "Liberation Sans") (:size 12) (:style :plain)))
+   (:align nil)
+   (:text
+    "<---  chord-seq to test segmentation-based stream segregation
+
+Start by choosing 'segmentation mode' in the cs, 
+then \"Add New Analysis\", 
+choose \"stream-seg\" from the pop-up menu.
+
+Segments are added using the standard segmentation
+techniques (ie. to make sure a segment is aligned
+with a specific chord, select that chord - in chord mode - and 
+hit the 's'-key).
+
+After segments are added, select \"Analyse segments\" from the
+pop-up menu.
+
+If you double-click on the segment-data, a window will pop up 
+to allow you to tune the stream-separation algorithm for that
+particular segment.
+
+For more info have a look here:
+
+	http://repmus.ircam.fr/openmusic/dev-resources/analysis
+")
+   (:id 3))
+  (:box
+   (:type :value)
+   (:reference fixnum)
+   (:group-id nil)
+   (:name "aux")
+   (:x 236)
+   (:y 382)
+   (:w 32)
+   (:h 32)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:reactive nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value 1)
+   (:id 4))
+  (:box
+   (:type :function)
+   (:reference nth)
+   (:group-id nil)
+   (:name "nth")
+   (:x 261)
+   (:y 429)
+   (:w 55)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:icon :left)
+   (:lock nil)
+   (:lambda nil)
+   (:reactive nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "ORIG-N")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "ORIG-LIST")
+     (:value nil)
+     (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 5))
+  (:box
+   (:library "Streamsep")
+   (:type :function)
+   (:reference stream-seg-segments)
+   (:group-id nil)
+   (:name "stream-seg-segments")
+   (:x 233)
+   (:y 314)
+   (:w 156)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:icon :left)
+   (:lock nil)
+   (:lambda nil)
+   (:reactive nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value nil)
+     (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 6))
+  (:box
+   (:library "Streamsep")
+   (:type :function)
+   (:reference stream-seg-to-multi-seq)
+   (:group-id nil)
+   (:name "stream-seg-to-multi-seq")
+   (:x 480)
+   (:y 298)
+   (:w 167)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:icon :left)
+   (:lock nil)
+   (:lambda nil)
+   (:reactive nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value nil)
+     (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 7))
+  (:box
+   (:type :object)
+   (:reference multi-seq)
+   (:group-id nil)
+   (:name "MULTI-SEQ 4")
+   (:x 430)
+   (:y 461)
+   (:w 634)
+   (:h 207)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:display :mini-view)
+   (:showname nil)
+   (:show-markers t)
+   (:lock nil)
+   (:lambda nil)
+   (:reactive nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "OBJ-LIST")
+     (:value
+      (:list
+       (:object
+        (:class chord-seq)
+        (:slots
+         ((:onset 0)
+          (:duration 1000)
+          (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))
+          (:name nil)
+          (:symbolic-date nil)
+          (:symbolic-dur nil)
+          (:symbolic-dur-extent 0)
+          (:extras nil)
+          (:group-ids nil)
+          (:lmidic (:list 6000))
+          (:lonset (:list 0 1000))
+          (:ldur (:list 1000))
+          (:lvel (:list 100))
+          (:loffset (:list 0))
+          (:lchan (:list 1))
+          (:lport (:list nil))
+          (:llegato nil))))))
+     (:reactive nil)))
+   (:outputs
+    (:output (:name "SELF") (:reactive nil))
+    (:output (:name "OBJ-LIST") (:reactive nil)))
+   (:window (:size nil) (:position nil))
+   (:edition-params)
+   (:value
+    (:object
+     (:class multi-seq)
+     (:slots
+      ((:obj-list
+        (:list
+         (:object
+          (:class chord-seq)
+          (:slots
+           ((:onset 0)
+            (:duration 19301)
+            (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))
+            (:name nil)
+            (:symbolic-date nil)
+            (:symbolic-dur nil)
+            (:symbolic-dur-extent 0)
+            (:extras nil)
+            (:group-ids nil)
+            (:lmidic
+             (:list
+              (:list 7100)
+              (:list 7100)
+              (:list 7600)
+              (:list 8000)
+              (:list 7600)
+              (:list 6400)
+              (:list 6300)
+              (:list 6000)
+              (:list 5700)
+              (:list 5400)
+              (:list 6700)
+              (:list 7500)
+              (:list 7600)))
+            (:lonset
+             (:list
+              0
+              1047
+              3811
+              6158
+              8109
+              9100
+              10431
+              11037
+              11741
+              13547
+              14793
+              16019
+              17501
+              19301))
+            (:ldur
+             (:list
+              (:list 800)
+              (:list 2500)
+              (:list 1200)
+              (:list 1300)
+              (:list 948)
+              (:list 1000)
+              (:list 510)
+              (:list 610)
+              (:list 510)
+              (:list 1200)
+              (:list 1100)
+              (:list 1000)
+              (:list 1800)))
+            (:lvel (:list 100))
+            (:loffset (:list 0))
+            (:lchan (:list 1))
+            (:lport (:list nil))
+            (:llegato nil))))
+         (:object
+          (:class chord-seq)
+          (:slots
+           ((:onset 0)
+            (:duration 14321)
+            (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))
+            (:name nil)
+            (:symbolic-date nil)
+            (:symbolic-dur nil)
+            (:symbolic-dur-extent 0)
+            (:extras nil)
+            (:group-ids nil)
+            (:lmidic (:list (:list 5900) (:list 6800) (:list 8700)))
+            (:lonset (:list 4269 6443 12621 14321))
+            (:ldur (:list (:list 800) (:list 1000) (:list 1700)))
+            (:lvel (:list 100))
+            (:loffset (:list 0))
+            (:lchan (:list 1))
+            (:lport (:list nil))
+            (:llegato nil))))
+         (:object
+          (:class chord-seq)
+          (:slots
+           ((:onset 0)
+            (:duration 14421)
+            (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))
+            (:name nil)
+            (:symbolic-date nil)
+            (:symbolic-dur nil)
+            (:symbolic-dur-extent 0)
+            (:extras nil)
+            (:group-ids nil)
+            (:lmidic (:list (:list 5500) (:list 7300)))
+            (:lonset (:list 6506 12621 14421))
+            (:ldur (:list (:list 900) (:list 1800)))
+            (:lvel (:list 100))
+            (:loffset (:list 0))
+            (:lchan (:list 1))
+            (:lport (:list nil))
+            (:llegato nil))))
+         (:object
+          (:class chord-seq)
+          (:slots
+           ((:onset 0)
+            (:duration 14376)
+            (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))
+            (:name nil)
+            (:symbolic-date nil)
+            (:symbolic-dur nil)
+            (:symbolic-dur-extent 0)
+            (:extras nil)
+            (:group-ids nil)
+            (:lmidic (:list 7700))
+            (:lonset (:list 13176 14376))
+            (:ldur (:list 1200))
+            (:lvel (:list 100))
+            (:loffset (:list 0))
+            (:lchan (:list 1))
+            (:lport (:list nil))
+            (:llegato nil))))))
+       (:symbolic-date nil)
+       (:symbolic-dur nil)
+       (:symbolic-dur-extent 0)
+       (:extras nil)
+       (:group-ids nil)))))
+   (:id 8))
+  (:box
+   (:type :object)
+   (:reference multi-seq)
+   (:group-id nil)
+   (:name "MULTI-SEQ")
+   (:x 110)
+   (:y 476)
+   (:w 276)
+   (:h 150)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:display :mini-view)
+   (:showname t)
+   (:show-markers t)
+   (:lock nil)
+   (:lambda nil)
+   (:reactive nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "OBJ-LIST")
+     (:value
+      (:list
+       (:object
+        (:class chord-seq)
+        (:slots
+         ((:onset 0)
+          (:duration 1000)
+          (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))
+          (:name nil)
+          (:symbolic-date nil)
+          (:symbolic-dur nil)
+          (:symbolic-dur-extent 0)
+          (:extras nil)
+          (:group-ids nil)
+          (:lmidic (:list 6000))
+          (:lonset (:list 0 1000))
+          (:ldur (:list 1000))
+          (:lvel (:list 100))
+          (:loffset (:list 0))
+          (:lchan (:list 1))
+          (:lport (:list nil))
+          (:llegato nil))))))
+     (:reactive nil)))
+   (:outputs
+    (:output (:name "SELF") (:reactive nil))
+    (:output (:name "OBJ-LIST") (:reactive nil)))
+   (:window (:size nil) (:position nil))
+   (:edition-params)
+   (:value
+    (:object
+     (:class multi-seq)
+     (:slots
+      ((:obj-list
+        (:list
+         (:object
+          (:class chord-seq)
+          (:slots
+           ((:onset 0)
+            (:duration 6680)
+            (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))
+            (:name nil)
+            (:symbolic-date nil)
+            (:symbolic-dur nil)
+            (:symbolic-dur-extent 0)
+            (:extras nil)
+            (:group-ids nil)
+            (:lmidic
+             (:list
+              (:list 5400)
+              (:list 6700)
+              (:list 7500)
+              (:list 7600)))
+            (:lonset (:list 926 2172 3398 4880 6680))
+            (:ldur
+             (:list
+              (:list 1200)
+              (:list 1100)
+              (:list 1000)
+              (:list 1800)))
+            (:lvel (:list 100))
+            (:loffset (:list 0))
+            (:lchan (:list 1))
+            (:lport (:list nil))
+            (:llegato nil))))
+         (:object
+          (:class chord-seq)
+          (:slots
+           ((:onset 0)
+            (:duration 1700)
+            (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))
+            (:name nil)
+            (:symbolic-date nil)
+            (:symbolic-dur nil)
+            (:symbolic-dur-extent 0)
+            (:extras nil)
+            (:group-ids nil)
+            (:lmidic (:list 8700))
+            (:lonset (:list 0 1700))
+            (:ldur (:list 1700))
+            (:lvel (:list 100))
+            (:loffset (:list 0))
+            (:lchan (:list 1))
+            (:lport (:list nil))
+            (:llegato nil))))
+         (:object
+          (:class chord-seq)
+          (:slots
+           ((:onset 0)
+            (:duration 1800)
+            (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))
+            (:name nil)
+            (:symbolic-date nil)
+            (:symbolic-dur nil)
+            (:symbolic-dur-extent 0)
+            (:extras nil)
+            (:group-ids nil)
+            (:lmidic (:list 7300))
+            (:lonset (:list 0 1800))
+            (:ldur (:list 1800))
+            (:lvel (:list 100))
+            (:loffset (:list 0))
+            (:lchan (:list 1))
+            (:lport (:list nil))
+            (:llegato nil))))
+         (:object
+          (:class chord-seq)
+          (:slots
+           ((:onset 0)
+            (:duration 1755)
+            (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))
+            (:name nil)
+            (:symbolic-date nil)
+            (:symbolic-dur nil)
+            (:symbolic-dur-extent 0)
+            (:extras nil)
+            (:group-ids nil)
+            (:lmidic (:list 7700))
+            (:lonset (:list 555 1755))
+            (:ldur (:list 1200))
+            (:lvel (:list 100))
+            (:loffset (:list 0))
+            (:lchan (:list 1))
+            (:lport (:list nil))
+            (:llegato nil))))))
+       (:symbolic-date nil)
+       (:symbolic-dur nil)
+       (:symbolic-dur-extent 0)
+       (:extras nil)
+       (:group-ids nil)))))
+   (:id 9))
+  (:box
+   (:type :object)
+   (:reference chord-seq)
+   (:group-id nil)
+   (:name "CHORD-SEQ")
+   (:x 120)
+   (:y 99)
+   (:w 443)
+   (:h 102)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:display :mini-view)
+   (:showname nil)
+   (:show-markers t)
+   (:lock :locked)
+   (:lambda nil)
+   (:reactive nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "LMIDIC")
+     (:value (:list 6000))
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "LONSET")
+     (:value (:list 0 1000))
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "LDUR")
+     (:value (:list 1000))
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "LVEL")
+     (:value (:list 100))
+     (:reactive nil))
+    (:input
+     (:type :key)
+     (:name "loffset")
+     (:value (:list 0))
+     (:reactive nil))
+    (:input
+     (:type :key)
+     (:name "lchan")
+     (:value (:list 1))
+     (:reactive nil))
+    (:input (:type :key) (:name "llegato") (:value 0) (:reactive nil)))
+   (:outputs
+    (:output (:name "SELF") (:reactive nil))
+    (:output (:name "LMIDIC") (:reactive nil))
+    (:output (:name "LONSET") (:reactive nil))
+    (:output (:name "LDUR") (:reactive nil))
+    (:output (:name "LVEL") (:reactive nil))
+    (:output (:name "loffset") (:reactive nil))
+    (:output (:name "lchan") (:reactive nil))
+    (:output (:name "llegato") (:reactive nil)))
+   (:window (:size (747 352)) (:position (0 0)))
+   (:edition-params (:staff :g))
+   (:value
+    (:object
+     (:class chord-seq)
+     (:slots
+      ((:onset 0)
+       (:duration 19301)
+       (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))
+       (:name "CHORD-SEQ")
+       (:symbolic-date nil)
+       (:symbolic-dur nil)
+       (:symbolic-dur-extent 0)
+       (:extras nil)
+       (:group-ids nil)
+       (:lmidic
+        (:list
+         (:list 7100)
+         (:list 7100)
+         (:list 7600)
+         (:list 5900)
+         (:list 8000)
+         (:list 6800)
+         (:list 5500)
+         (:list 7600)
+         (:list 6400)
+         (:list 6300)
+         (:list 6000)
+         (:list 5700)
+         (:list 8700)
+         (:list 7300)
+         (:list 7700)
+         (:list 5400)
+         (:list 6700)
+         (:list 7500)
+         (:list 7600)))
+       (:lonset
+        (:list
+         0
+         1047
+         3811
+         4269
+         6158
+         6443
+         6506
+         8109
+         9100
+         10431
+         11037
+         11741
+         12621
+         12621
+         13176
+         13547
+         14793
+         16019
+         17501
+         19301))
+       (:ldur
+        (:list
+         (:list 800)
+         (:list 2500)
+         (:list 1200)
+         (:list 800)
+         (:list 1300)
+         (:list 1000)
+         (:list 900)
+         (:list 948)
+         (:list 1000)
+         (:list 510)
+         (:list 610)
+         (:list 510)
+         (:list 1700)
+         (:list 1800)
+         (:list 1200)
+         (:list 1200)
+         (:list 1100)
+         (:list 1000)
+         (:list 1800)))
+       (:lvel (:list 100))
+       (:loffset (:list 0))
+       (:lchan (:list 1))
+       (:lport (:list nil))
+       (:llegato nil)))))
+   (:id 10)))
+ (:connections
+  (:connection (:from (:box 4 :out 0)) (:to (:box 5 :in 0)))
+  (:connection (:from (:box 5 :out 0)) (:to (:box 9 :in 1)))
+  (:connection (:from (:box 6 :out 0)) (:to (:box 5 :in 1)))
+  (:connection (:from (:box 7 :out 0)) (:to (:box 8 :in 0)))
+  (:connection (:from (:box 10 :out 0)) (:to (:box 6 :in 0)))
+  (:connection (:from (:box 10 :out 0)) (:to (:box 7 :in 0)))))
