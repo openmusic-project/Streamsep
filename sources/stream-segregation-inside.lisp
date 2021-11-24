@@ -37,32 +37,61 @@
 
 ;; TODO: consider sub/super-classing eventmidi-seq instead
 
+#-om-sharp
 (defmethod cs->seq ((cs chord-seq))
   (let ((events (inside cs))
 	(*seg-evt-idx* 0))
     (loop
-       for onset in (butlast (lonset cs))
-       for dur in (ldur cs)
-       for evt in events
-       ;; TODO: collect trills, ornaments etc. into same event
-       if (> (length (inside evt)) 1)
-       ;;explode chord for now:
-       append (loop
+      for onset in (butlast (lonset cs))
+      for dur in (ldur cs)
+      for evt in events
+      ;; TODO: collect trills, ornaments etc. into same event
+      if (> (length (inside evt)) 1)
+	;;explode chord for now:
+	append (loop
 		 for sub in (inside evt)
 		 for subdur in dur
-		 collect (make-evt :onset onset :end (+ onset subdur)
+		 collect (make-evt :onset onset
+				   :end (+ onset subdur)
 				   :dur subdur
 				   :data (make-instance 'chord
 							:inside (list (clone sub))
 							:offset (offset->ms evt)
 							;; :qvalue (qvalue evt)
 							)))
-       else
-       collect (make-evt :onset onset
-			 :dur (car dur)
-			 :end (+ onset (car dur))
-			 :data (clone evt)))))
+      else
+	collect (make-evt :onset onset
+			  :dur (car dur)
+			  :end (+ onset (car dur))
+			  :data (clone evt)))))
 
+
+#+om-sharp
+(defmethod cs->seq ((cs chord-seq))
+  (let ((chords (chords cs))
+	(durs (ldur cs))
+	(onsets (butlast (lonset cs)))
+	(*seg-evt-idx* 0))
+    (loop for onset in onsets
+	  for dur in durs
+	  for chord in chords
+	  ;; TODO: collect trills, ornaments etc. into same event
+	  if (> (length (notes chord)) 1)
+	    ;;explode chord for now:
+	    append (loop
+		     for note in (notes chord)
+		     for notedur in dur
+		     collect (make-evt :onset onset
+				       :end (+ onset notedur)
+				       :dur notedur
+				       :data (make-instance 'chord
+							    :notes (list (clone note))
+							    :onset (onset chord))))
+	  else
+	    collect (make-evt :onset onset
+			      :dur (car dur)
+			      :end (+ onset (car dur))
+			      :data (clone chord)))))
 
 
 (defstruct cluster onset end events)
