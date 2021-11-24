@@ -52,12 +52,11 @@
 		 for subdur in dur
 		 collect (make-evt :onset onset :end (+ onset subdur)
 				   :dur subdur
-				   :data (mki 'chord
-					      :empty t
-					      :inside (list (copy-container sub))
-					      :offset (offset->ms evt)
-					      ;; :qvalue (qvalue evt)
-					      )))
+				   :data (make-instance 'chord
+							:inside (list (copy-container sub))
+							:offset (offset->ms evt)
+							;; :qvalue (qvalue evt)
+							)))
        else
        collect (make-evt :onset onset
 			 :dur (car dur)
@@ -194,18 +193,20 @@
 
 (defun clusters-to-cs (streams)
   (loop
-     for stream in streams
-     collect (let* ((new-cs (mki 'chord-seq :empty t :qvalue 1000))
-		    (time-sorted-evts (sort
-				       (mapcar #'(lambda (evt)
-						   (cons (evt-onset evt) (evt-data evt)))
-					       (cluster-events stream))
-				       #'< :key #'car)))
-	       (setf (inside new-cs) (mapcar #'cdr time-sorted-evts)
-		     (lonset new-cs) (mapcar #'car time-sorted-evts))
-	       (adjust-extent new-cs)
-	       (QNormalize new-cs)
-	       new-cs)))
+    for stream in streams
+    collect (let* ((new-cs (make-instance 'chord-seq))
+		   (time-sorted-evts (sort
+				      (mapcar #'(lambda (evt)
+						  (cons (evt-onset evt) (evt-data evt)))
+					      (cluster-events stream))
+				      #'< :key #'car)))
+	      ;; (setf (inside new-cs) (mapcar #'cdr time-sorted-evts))
+	      (set-chords new-cs (mapcar #'cdr time-sorted-evts))
+	      (setf (lonset new-cs) (mapcar #'car time-sorted-evts))
+	      ;; (adjust-extent new-cs)
+	      ;; (QNormalize new-cs)
+	      (print (lonset new-cs) t)
+	      new-cs)))
 
 
 ;;; MAIN INTERFACE: set up *distance-fun* in a scope and call this function in the
