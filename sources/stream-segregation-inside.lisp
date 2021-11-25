@@ -55,6 +55,7 @@
 				   :end (+ onset subdur)
 				   :dur subdur
 				   :data (make-instance 'chord
+							:empty t
 							:inside (list (clone sub))
 							:offset (offset->ms evt)
 							;; :qvalue (qvalue evt)
@@ -229,12 +230,12 @@
 						  (cons (evt-onset evt) (evt-data evt)))
 					      (cluster-events stream))
 				      #'< :key #'car)))
-	      ;; (setf (inside new-cs) (mapcar #'cdr time-sorted-evts))
-	      (set-chords new-cs (mapcar #'cdr time-sorted-evts))
+	      #-om-sharp (setf (inside new-cs) (mapcar #'cdr time-sorted-evts))
+	      #+om-sharp (set-chords new-cs (mapcar #'cdr time-sorted-evts))
 	      (setf (lonset new-cs) (mapcar #'car time-sorted-evts))
 	      ;; (adjust-extent new-cs)
 	      ;; (QNormalize new-cs)
-	      (print (lonset new-cs) t)
+	      ;; (print (lonset new-cs) t)
 	      new-cs)))
 
 
