@@ -1,7 +1,7 @@
 (in-package :om)
 
 ;;;
-;;; Time-stamp: <2021-09-27 22:21:17 andersvi>
+;;; Time-stamp: <2021-11-26 10:06:16 andersvi>
 ;;;
 ;;; Stream separation library for OM, Anders Vinjar
 ;;;
@@ -36,6 +36,7 @@
 ;;  Stream-Seg - Stream separation Library for OM
 ;;  Version:	 ~A
 ;;  Date:	 ~A
+;;  URL:	 https://github.com/openmusic-project/Streamsep
 ;;  Author:	 Anders Vinjar
 ;; ============================================
 "

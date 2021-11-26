@@ -1,6 +1,6 @@
 ;;; -*- mode: lisp -*-
 ;;; 
-;;; Time-stamp: <2021-09-27 22:22:10 andersvi>
+;;; Time-stamp: <2021-11-26 10:06:03 andersvi>
 ;;;
 ;;; Patterns library for OM, Anders Vinjar
 ;;;
@@ -22,9 +22,10 @@
 
 
 (:om-lib 
- (:version 0.3)
- (:doc "Streamsep - a Library for Polyphonic Stream Segregation in OM")
- (:author "Anders Vinjar")
+ (:version 0.4)
+ (:doc "Streamsep - a Library for Polyphonic Stream Segregation in OM
+	URL: https://github.com/openmusic-project/Streamsep")
+ (:author "Anders Vinjar - 2021")
  (:source-files
 	"sources/stream-segregation-inside"
 	"sources/stream-seg")

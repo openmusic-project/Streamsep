@@ -8,7 +8,7 @@ Check the tutorial files for examples of usage.
 
 Install in the usual ways for OM libraries.
 
-Anders Vinjar, 2017
+Anders Vinjar, 2021
 
 ---------
 
