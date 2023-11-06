@@ -1,11 +1,9 @@
 (in-package :om)
 
 ;;;
-;;; Time-stamp: <2021-11-26 10:06:16 andersvi>
+;;; Time-stamp: <2023-11-06 14:07:33 andersvi>
 ;;;
 ;;; Stream separation library for OM, Anders Vinjar
-;;;
-;;; Copyright (C) 2021 Anders Vinjar, <anders (at) avinjar (dot) no>
 ;;;
 ;;; This program is free software; you can redistribute it and/or modify
 ;;; it under the terms of the Lisp Lesser Gnu Public License.  See

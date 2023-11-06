@@ -1,8 +1,6 @@
 ;;; Stream separation for OM, Anders Vinjar
 ;;;
-;;; Copyright (C) 2017 Anders Vinjar, <anders (dot) vinjar (at) bek (dot) no>
-;;;
-;;; Time-stamp: <2017-04-25 10:41:38 andersvi>
+;;; Time-stamp: <2023-11-06 14:04:17 andersvi>
 ;;;
 ;;; This program is free software; you can redistribute it and/or modify
 ;;; it under the terms of the Lisp Lesser Gnu Public License.  See

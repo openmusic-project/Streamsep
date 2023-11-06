@@ -1,9 +1,7 @@
 ;;; 
 ;;; STREAM SEGREGATION LIBRARY FOR OM
 ;;;
-;;; Copyright (C) 2017 Anders Vinjar, <anders (dot) vinjar (at) bek (dot) no>
-;;;
-;;; Time-stamp: <2017-06-01 17:31:10 andersvi>
+;;; Time-stamp: <2023-11-06 14:03:52 andersvi>
 ;;;
 ;;; This program is free software; you can redistribute it and/or modify
 ;;; it under the terms of the Lisp Lesser Gnu Public License.  See
@@ -12,5 +10,5 @@
 
 (in-package :om)
 
-(defconstant *streamsep-version* 0.2)
-(defparameter *streamsep-date* '2017-06-01)
+(defconstant *streamsep-version* 0.4)
+(defparameter *streamsep-date* '2023-11-06)
